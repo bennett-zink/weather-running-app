@@ -20,11 +20,11 @@ async function checkWeather(city){
         document.querySelector(".city").innerHTML = data.name
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°F"
         document.querySelector(".humidity").innerHTML = Math.round(data.main.humidity) + "%"
-        document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " mph"
 
         const dewPoint = data.main.temp - ((9/25) * (100- data.main.humidity))
         document.querySelector(".dewpoint").innerHTML = Math.round(dewPoint) + "°F"
-                
+        
+        // Image based on weather
         if(data.weather[0].main == "Clouds"){
             weatherIcon.src = "images/clouds.png"
         }
@@ -47,6 +47,7 @@ async function checkWeather(city){
             weatherIcon.src = "images/thunderstorm.png"
         }
         
+        // Pace Adjustment
         const combined = dewPoint + Math.round(data.main.temp)
         if (combined <= 100){
             document.querySelector(".dew-adj").innerHTML = "No pace adjustment needed"
@@ -79,6 +80,31 @@ async function checkWeather(city){
             document.querySelector(".dew-adj").innerHTML = "We do not recommend any hard running"
         }
 
+        const windSpeed = Math.round(data.wind.speed)
+        const windDeg = data.wind.deg
+        let windDir = ""
+
+        // Wind direction
+        if (windDeg < 45 || windDeg >= 315){
+            windDir = "north"
+        }
+        else if (windDeg >= 45 && windDeg < 135){
+            windDir = "east"
+        }
+        else if (windDeg >= 135 && windDeg < 225){
+            windDir = "south"
+        }
+        else if (windDeg >= 225 && windDeg < 315){
+            windDir = "west"
+        }
+
+        if (data.wind.gust) {
+            document.querySelector(".wind").innerHTML = windSpeed + " mph with gusts up to " + Math.round(data.wind.gust) + "mph from the " + windDir
+        }
+        else{
+            document.querySelector(".wind").innerHTML = windSpeed + "mph from the " + windDir
+        }
+
         document.querySelector(".error").style.display = "none";
         document.querySelector(".weather").style.display = "block";
     }
@@ -93,4 +119,5 @@ searchBox.addEventListener("keydown", (event) => {
 
 searchButton.addEventListener("click", ()=>{
     checkWeather(searchBox.value);
+    console.log(searchBox.value)
 })
