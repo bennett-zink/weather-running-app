@@ -23,28 +23,44 @@ async function checkWeather(city){
 
         const dewPoint = data.main.temp - ((9/25) * (100- data.main.humidity))
         document.querySelector(".dewpoint").innerHTML = Math.round(dewPoint) + "°F"
+
+        const unixTimestamp = data.dt
+        const date = new Date(unixTimestamp * 1000);
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        console.log(hours, minutes)
         
         // Image based on weather
         if(data.weather[0].main == "Clouds"){
-            weatherIcon.src = "images/clouds.png"
+            if (hours < 7 || hours > 20){
+                weatherIcon.src = "images/cloud-moon.svg"
+            }
+            else{
+                weatherIcon.src = "images/cloud-sun.svg"
+            }
         }
         else if(data.weather[0].main == "Clear"){
-            weatherIcon.src = "images/clear.png"
+            if (hours < 7 || hours > 20){
+                weatherIcon.src = "images/moon.svg"
+            }
+            else{
+                weatherIcon.src = "images/sun.svg"
+            }
         }
         else if(data.weather[0].main == "Rain"){
-            weatherIcon.src = "images/rain.png"
+            weatherIcon.src = "images/rain.svg"
         }
         else if(data.weather[0].main == "Drizzle"){
-            weatherIcon.src = "images/drizzle.png"
+            weatherIcon.src = "images/drizzle-sun.svg"
         }
         else if(data.weather[0].main == "Mist"){
-            weatherIcon.src = "images/mist.png"
+            weatherIcon.src = "images/fog.svg"
         }
         else if(data.weather[0].main == "Snow"){
-            weatherIcon.src = "images/snow.png"
+            weatherIcon.src = "images/snow.svg"
         }
         else if(data.weather[0].main == "Thunderstorm"){
-            weatherIcon.src = "images/thunderstorm.png"
+            weatherIcon.src = "images/lightning-rain.svg"
         }
         
         // Pace Adjustment
