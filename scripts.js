@@ -88,49 +88,49 @@ async function checkWeather(city, pace){
             document.querySelector(".dew-adj").innerHTML = "No pace adjustment needed"
         }
         else if (combined > 100 && combined <= 110){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  0% to 0.5% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "0% to 0.5% pace adjustment recommended"
             seconds = Math.round(seconds * 1.0025)
             const newPace = formatTime(seconds) 
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 110 && combined <= 120){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  0.5% to 1% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "0.5% to 1% pace adjustment recommended"
             seconds = Math.round(seconds * 1.0075)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 120 && combined <= 130){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  1% to 2% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "1% to 2% pace adjustment recommended"
             seconds = Math.round(seconds * 1.015)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 130 && combined <= 140){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  2% to 3% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "2% to 3% pace adjustment recommended"
             seconds = Math.round(seconds * 1.025)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 140 && combined <= 150){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  3% to 4.5% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "3% to 4.5% pace adjustment recommended"
             seconds = Math.round(seconds * 1.0375)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 150 && combined <= 160){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  4.5% to 6% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "4.5% to 6% pace adjustment recommended"
             seconds = Math.round(seconds * 1.0525)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 160 && combined <= 170){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  6% to 8% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "6% to 8% pace adjustment recommended"
             seconds = Math.round(seconds * 1.07)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace
         }
         else if (combined > 170 && combined <= 180){
-            document.querySelector(".dew-adj").innerHTML = "We recommend  8% to 10% pace adjustment"
+            document.querySelector(".dew-adj").innerHTML = "8% to 10% pace adjustment recommended"
             seconds = Math.round(seconds * 1.09)
             const newPace = formatTime(seconds)
             document.querySelector(".new-pace").innerHTML = "Adjusted pace: " + newPace

@@ -112,3 +112,37 @@ header {
 .error{
     padding-top: 20px;
 }
+
+.back {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+    font-size: 16px;
+    bottom: 0;
+    right: 0;
+    font-weight: 400;
+}
+
+.back button {
+    transition: transform 0.4s ease;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.back button:hover {
+    transform: translateX(3px);
+}
+
+.back img {
+    width: 15px;
+    height: auto;
+}
+
+.back span {
+    position: relative;
+    top: -2px;
+}
