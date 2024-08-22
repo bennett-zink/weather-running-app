@@ -83,7 +83,7 @@ header {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .info > div {
@@ -91,17 +91,21 @@ header {
     text-align: center;
 }
 
-.humidity, .wind, .dewpoint{
+.humidity, .wind, .dewpoint, .new-pace{
     font-weight: 500;
     font-size: 24px;
     margin-bottom: 5px;
+}
+
+.new-pace{
+    margin-bottom: 25px;
 }
 
 .pace{
     margin-bottom: 20px;
 }
 
-.weather, .error{
+.weather, .error, .error2{
     display: none;
 }
 
