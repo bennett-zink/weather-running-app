@@ -6,6 +6,7 @@ const searchBox = document.querySelector("#location");
 const searchBoxPace = document.querySelector("#pace");
 const searchButton = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
+const backButton = document.querySelector(".back button")
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -181,6 +182,13 @@ async function checkWeather(city, pace){
     }
 }
 
+async function back(){
+    document.querySelector(".error").style.display = "none";
+    document.querySelector(".error2").style.display = "none";
+    document.querySelector(".weather").style.display = "none";
+    document.querySelector(".search").style.display = "flex";
+}
+
 searchBox.addEventListener("keydown", (event) => {
     console.log(`Key pressed: ${event.key}`);
     if (event.key === "Enter") {
@@ -190,5 +198,8 @@ searchBox.addEventListener("keydown", (event) => {
 
 searchButton.addEventListener("click", ()=>{
     checkWeather(searchBox.value, searchBoxPace.value);
-    console.log(searchBox.value)
+})
+
+backButton.addEventListener("click", ()=>{
+    back();
 })
